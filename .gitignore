@@ -1,4 +1,4 @@
-*.env*
 npm-debug.log
 yarn-error.log
 node_modules/
+backend/config/config.env
