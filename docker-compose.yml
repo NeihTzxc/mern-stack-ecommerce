@@ -1,0 +1,48 @@
+version: '3.6'
+services:
+  redis:
+    image: redis:6.2
+    restart: always
+    environment:
+      REDIS_PASSWORD: '${REDIS_PASSWORD}'
+    ports:
+      - 56379:6379
+    env_file:
+      - .env
+    networks:
+      - ecommerce-network
+
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: '${MONGO_DB}'
+      MONGO_INITDB_ROOT_USERNAME: '${MONGO_USER}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGO_PASSWORD}'
+    volumes:
+      - ./mongo-entrypoint:/docker-entrypoint-initdb.d
+      - mongo_data:/data/db
+      - ./mongoconfig:/data/configdb
+    ports:
+      - 28017:27017
+    networks:
+      - ecommerce-network
+
+  api:
+    container_name: ecommerce-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: el-app-api
+    restart: unless-stopped
+    ports:
+      - ${SERVER_PUBLIC_PORT}:${PORT}
+    volumes:
+      - "./backend:/usr/src/app/src"
+    environment:
+      NODE_ENV: development
+    env_file:
+      - ./backend/config/config.env
+    networks:
+      - ecommerce-network
+    command: dev
