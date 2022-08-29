@@ -10,7 +10,10 @@ app.use(cookieParser())
 //Route Imports
 app.use("/api/v1", product);
 app.use("/api/v1", user)
-
+app.use("/", (req, res) => {
+    console.log("OK");
+    res.send("OK")
+})
 app.use(errorMiddleware)
 
 module.exports = app

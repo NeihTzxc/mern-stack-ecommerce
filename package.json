@@ -1,11 +1,10 @@
 {
   "name": "ecommerce",
   "version": "1.0.0",
-  "main": "backend/server.js",
   "license": "MIT",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "nodemon --legacy-watch backend/server.js"
+    "dev": "nodemon backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
