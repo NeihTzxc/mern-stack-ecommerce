@@ -4,7 +4,7 @@
   "main": "backend/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "nodemon --legacy-watch src/server.js",
     "dev": "nodemon --legacy-watch backend/server.js"
   },
   "dependencies": {
