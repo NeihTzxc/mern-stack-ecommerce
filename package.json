@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "start": "nodemon --legacy-watch src/server.js",
+    "dev": "nodemon --legacy-watch backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
