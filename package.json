@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --legacy-watch src/server.js",
-    "dev": "nodemon --legacy-watch backend/server.js"
+    "dev": "nodemon --legacy-watch src/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

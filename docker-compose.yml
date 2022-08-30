@@ -10,7 +10,7 @@ services:
     ports:
       - ${SERVER_PUBLIC_PORT}:${PORT}
     volumes:
-      - "./backend:/usr/src/app/src"
+      - "./src:/usr/src/app/src"
     environment:
       NODE_ENV: development
     env_file:
